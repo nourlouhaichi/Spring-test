@@ -3,6 +3,7 @@ package com.example.projettp.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,6 +20,7 @@ public class Equipe {
     String nom;
     Domaine domaine;
 
-    @ManyToMany
-    List<Projet> projets;
+    @ManyToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER)
+    private List<Projet> projets = new ArrayList<Projet>();
+
 }

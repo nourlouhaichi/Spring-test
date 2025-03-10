@@ -22,7 +22,7 @@ public class Projet {
     @ManyToMany(mappedBy = "projets")
     List<Equipe> equipes;
 
-    @OneToOne
-    ProjetDetails projetDetails;
+    @OneToOne(cascade = CascadeType.ALL)
+    private ProjetDetails projetDetails;
 
 }

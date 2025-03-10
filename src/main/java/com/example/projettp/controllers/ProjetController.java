@@ -1,5 +1,6 @@
 package com.example.projettp.controllers;
 
+import com.example.projettp.entities.Equipe;
 import com.example.projettp.entities.Projet;
 import com.example.projettp.services.IProjetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,4 +39,40 @@ public class ProjetController {
     void deleteProjet(@PathVariable long id){
         projetService.deleteProjet(id);
     }
+
+    @PostMapping("/addProjetAndProjetDetail")
+    public Projet addProjetAndProjetDetail(@RequestBody Projet p) {
+        return projetService.addProjetAndProjetDetailAndAssign(p);
+    }
+
+    @PutMapping("/assignProjetDetailToProjet/{idProjet}/{idProjetdetail}")
+    Projet assignProjetDetailToProjet(@PathVariable Long idProjet,@PathVariable Long idProjetdetail) {
+        return projetService.assignProjetDetailToProjet(idProjet,idProjetdetail);
+    }
+
+    @PutMapping("/assignProjetToEquipe/{idEquipe}/{idProjet}")
+    Equipe assignProjetToEquipe(@PathVariable Long idEquipe, @PathVariable Long idProjet) {
+        return projetService.assignProjetToEquipe(idEquipe,idProjet);
+    }
+
+    @PutMapping("/assignProjetsToEquipe/{idProjet}/{idEquipe}")
+    Equipe affectProjetsToEquipe (@PathVariable Long idEquipe, @PathVariable List <Long> idProjet) {
+        return  projetService.assignProjetsToEquipe(idEquipe,idProjet);
+    }
+
+    @PostMapping("addProjetAndAssignProjetToProjetDetail/{idProjetdetail}")
+    public Projet addProjetAndAssignProjetToProjetDetail(@RequestBody Projet projet,@PathVariable Long idProjetdetail) {
+        return projetService.addProjetAndAssignProjetToProjetDetail(projet,idProjetdetail);
+    }
+
+    @PutMapping("DesaffecterProjetDetailFromProjet/{idProjet}")
+    public Projet DesaffecterProjetDetailFromProjet(@PathVariable Long idProjet) {
+        return projetService.DesaffecterProjetDetailFromProjet(idProjet);
+    }
+
+    @PutMapping("desaffecterProjetFromEquipe/{idProjet}/{idEquipe}")
+    public void desaffecterProjetFromEquipe(@PathVariable Long idProjet, @PathVariable Long idEquipe) {
+        projetService.desaffecterProjetFromEquipe(idProjet,idEquipe);
+    }
+
 }

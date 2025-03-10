@@ -1,4 +1,5 @@
 package com.example.projettp.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.Date;
@@ -20,5 +21,7 @@ public class ProjetDetails {
     Date dateDebut;
 
     @OneToOne(mappedBy = "projetDetails")
-    Projet projet;
+    @ToString.Exclude
+    @JsonIgnore
+    private Projet projet;
 }
