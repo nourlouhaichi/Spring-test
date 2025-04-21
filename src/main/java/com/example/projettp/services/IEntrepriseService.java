@@ -11,4 +11,5 @@ public interface IEntrepriseService {
     List<Entreprise> retrieveByAdresse(@Param("adresse")String adresse);
 
     List<Entreprise> retreiveByDomaine(@Param("d") Domaine domaine);
+    int updateEntreprise(String adresse, Long idEntreprise);
 }

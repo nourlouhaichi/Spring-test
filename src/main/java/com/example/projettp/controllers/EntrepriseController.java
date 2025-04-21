@@ -6,10 +6,7 @@ import com.example.projettp.services.EntrepriseServiceImplement;
 import com.example.projettp.services.IEntrepriseService;
 import com.example.projettp.services.IEquipeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +25,10 @@ public class EntrepriseController {
     @GetMapping("/retreiveByDomaine/{domaine}")
     List<Entreprise> retreiveByDomaine(@PathVariable Domaine domaine){
         return entrepriseService.retreiveByDomaine(domaine);
+    }
+
+    @PutMapping("/updateEntreprise/{adresse}/{idE}")
+    public int updateEntreprise(String adresse, Long idEntreprise) {
+        return entrepriseService.updateEntreprise(adresse, idEntreprise);
     }
 }
