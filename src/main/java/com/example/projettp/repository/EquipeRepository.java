@@ -6,13 +6,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
 public interface EquipeRepository  extends JpaRepository<Equipe, Long>{
 
-    @Query("SELECT e FROM Equipe e join e.projets p WHERE p.projetDetails.technologie=:t AND p.projetDetails.dateDebut>current date")
-    List<Equipe> retreiveByTechnologieAndDate(@Param("t") String technologie);
+    @Query("SELECT e FROM Equipe e join e.projets p WHERE p.projetDetails.technologie=:t AND p.projetDetails.dateDebut>:date")
+    List<Equipe> retreiveByTechnologieAndDate(@Param("t") String technologie, @Param("date") Date dateDebut);
 
 }
 

@@ -8,8 +8,10 @@ import com.example.projettp.entities.Projet;
 import com.example.projettp.services.IEquipeService;
 import com.example.projettp.services.IProjetService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -44,8 +46,8 @@ public class EquipeController {
         equipeService.deleteEquipe(id);
     }
 
-    @GetMapping("/retreiveByTechnologieAndDate/{technologie}")
-    List<Equipe> retreiveByTechnologieAndDate(@PathVariable String technologie){
-        return equipeService.retreiveByTechnologieAndDate(technologie);
+    @GetMapping("/retreiveByTechnologieAndDate/{technologie}/{date}")
+    List<Equipe> retreiveByTechnologieAndDate(@PathVariable String technologie, @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
+        return equipeService.retreiveByTechnologieAndDate(technologie, date);
     }
 }

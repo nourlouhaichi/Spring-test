@@ -4,6 +4,7 @@ import com.example.projettp.entities.Equipe;
 import com.example.projettp.entities.Projet;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IEquipeService {
@@ -14,5 +15,5 @@ public interface IEquipeService {
     List<Equipe > retreiveAllEquipes();
     Equipe  retreiveEquipe (long id);
 
-    List<Equipe> retreiveByTechnologieAndDate(@Param("t") String technologie);
+    List<Equipe> retreiveByTechnologieAndDate(String technologie, Date date);
 }

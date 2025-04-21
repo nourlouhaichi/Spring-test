@@ -5,6 +5,7 @@ import com.example.projettp.repository.EquipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -38,7 +39,7 @@ public class EquipeServiceImplement implements IEquipeService {
     }
 
     @Override
-    public List<Equipe> retreiveByTechnologieAndDate(String technologie) {
-        return  equipeRepository.retreiveByTechnologieAndDate(technologie);
+    public List<Equipe> retreiveByTechnologieAndDate(String technologie, Date date) {
+        return  equipeRepository.retreiveByTechnologieAndDate(technologie, date);
     }
 }
