@@ -1,5 +1,7 @@
 package com.example.projettp.controllers;
 
+import com.example.projettp.entities.Domaine;
+import com.example.projettp.entities.Entreprise;
 import com.example.projettp.entities.Equipe;
 import com.example.projettp.entities.Projet;
 import com.example.projettp.services.IProjetService;
@@ -73,6 +75,11 @@ public class ProjetController {
     @PutMapping("desaffecterProjetFromEquipe/{idProjet}/{idEquipe}")
     public void desaffecterProjetFromEquipe(@PathVariable Long idProjet, @PathVariable Long idEquipe) {
         projetService.desaffecterProjetFromEquipe(idProjet,idEquipe);
+    }
+
+    @GetMapping("/retreiveByCoutAndTechnologie/{cout}/{technologie}")
+    List<Projet> retreiveByCoutAndTechnologie(@PathVariable Long cout, @PathVariable String technologie){
+        return projetService.retreiveByCoutAndTechnologie(cout,technologie);
     }
 
 }

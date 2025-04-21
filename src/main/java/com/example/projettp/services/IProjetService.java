@@ -2,6 +2,7 @@ package com.example.projettp.services;
 
 import com.example.projettp.entities.Equipe;
 import com.example.projettp.entities.Projet;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -18,5 +19,7 @@ public interface IProjetService {
     public Projet addProjetAndAssignProjetToProjetDetail(Projet projet,Long idProjetDetail);
     public Projet DesaffecterProjetDetailFromProjet(Long idProjet);
     public void desaffecterProjetFromEquipe(Long idProjet, Long idEquipe);
+
+    List<Projet> retreiveByCoutAndTechnologie (@Param("c") Long cout, @Param("t") String technologie);
 
 }

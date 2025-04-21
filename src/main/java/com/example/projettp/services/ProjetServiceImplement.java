@@ -95,4 +95,9 @@ public class ProjetServiceImplement implements IProjetService{
         equipe.getProjets().remove(projet);
         equipeRepository.save(equipe);
     }
+
+    @Override
+    public List<Projet> retreiveByCoutAndTechnologie(Long cout, String technologie) {
+        return projetRepository.retreiveByCoutAndTechnologie(cout,technologie);
+    }
 }

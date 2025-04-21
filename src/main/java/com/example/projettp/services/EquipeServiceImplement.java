@@ -36,4 +36,9 @@ public class EquipeServiceImplement implements IEquipeService {
     public Equipe retreiveEquipe(long id) {
         return equipeRepository.findById(id).get();
     }
+
+    @Override
+    public List<Equipe> retreiveByTechnologieAndDate(String technologie) {
+        return  equipeRepository.retreiveByTechnologieAndDate(technologie);
+    }
 }

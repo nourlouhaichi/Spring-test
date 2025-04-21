@@ -1,6 +1,8 @@
 package com.example.projettp.controllers;
 
 
+import com.example.projettp.entities.Domaine;
+import com.example.projettp.entities.Entreprise;
 import com.example.projettp.entities.Equipe;
 import com.example.projettp.entities.Projet;
 import com.example.projettp.services.IEquipeService;
@@ -40,5 +42,10 @@ public class EquipeController {
     @DeleteMapping("/deleteEquipe/{id}")
     void deleteEquipe(@PathVariable long id){
         equipeService.deleteEquipe(id);
+    }
+
+    @GetMapping("/retreiveByTechnologieAndDate/{technologie}")
+    List<Equipe> retreiveByTechnologieAndDate(@PathVariable String technologie){
+        return equipeService.retreiveByTechnologieAndDate(technologie);
     }
 }

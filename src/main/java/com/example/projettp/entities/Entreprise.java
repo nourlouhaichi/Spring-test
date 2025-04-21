@@ -12,18 +12,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Equipe {
-
+public class Entreprise {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long idEquipe;
+    Long idEntreprise;
     String nom;
-    Domaine domaine;
+    String adresse;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER)
-    private List<Projet> projets = new ArrayList<Projet>();
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    Entreprise entreprise;
-
+    @OneToMany(mappedBy = "entreprise")
+    private List<Equipe> equipes = new ArrayList<Equipe>();
 }
