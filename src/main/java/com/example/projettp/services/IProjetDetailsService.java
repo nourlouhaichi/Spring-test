@@ -8,6 +8,6 @@ public interface IProjetDetailsService {
     ProjetDetails addProjetDetails(ProjetDetails projetDetails);
     ProjetDetails updateProjetDetails(ProjetDetails projetDetails);
     void deleteProjetDetails(long id);
-    List<ProjetDetails> retreiveAllProjetDetails();
+    List<ProjetDetails> retreiveAllProjetDetails() throws InterruptedException;
     ProjetDetails retreiveProjetDetails(long id);
 }

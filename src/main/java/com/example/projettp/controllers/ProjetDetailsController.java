@@ -25,7 +25,7 @@ public class ProjetDetailsController {
     }
 
     @GetMapping("/retreiveAllProjetDetails")
-    List<ProjetDetails> retreiveAllProjetDetails() {
+    List<ProjetDetails> retreiveAllProjetDetails() throws InterruptedException  {
         return projetDetailsService.retreiveAllProjetDetails();
     }
 
